@@ -16,7 +16,10 @@ for (int row = 0; row < height; row++) {
           y = y_new;
           iterations++;
       }
-      if (iterations < maxIterations) pixels[col + row * width] = color(iterations);
+      if (iterations < maxIterations) {
+        float cl = map(iterations, 0, maxIterations, 0, 255);
+        pixels[col + row * width] = color(cl);
+      }
       else pixels[col + row * width] = color(0);
    }
 }
